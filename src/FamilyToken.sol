@@ -14,7 +14,9 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 contract FamilyToken is ERC20, ERC20Permit, ERC20Votes {
     constructor() ERC20("FamilyToken", "FTK") ERC20Permit("FamilyToken") {}
 
-    // The following functions are overrides required by Solidity.
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
+    }
 
     function _update(
         address from,
